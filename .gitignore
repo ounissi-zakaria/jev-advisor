@@ -1,0 +1,11 @@
+# dependencies
+node_modules/
+
+# jev runtime files: the extension reads and writes these in the session cwd
+jev-rules.jsonl
+jev-config.json
+jev-audit.jsonl
+
+# local-only live checks and the runs they keep (JEV_SMOKE_KEEP=1)
+scripts/smoke.sh
+.smoke/

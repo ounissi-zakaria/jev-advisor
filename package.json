@@ -1,0 +1,14 @@
+{
+	"name": "jev-advisor",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "Rules-file gate for omp: each line becomes a jev judgment about the pending tool call, its result, or the finished turn.",
+	"omp": {
+		"extensions": ["./src/jev-advisor.ts"]
+	},
+	"devDependencies": {
+		"@oh-my-pi/pi-coding-agent": "^18.2.6",
+		"@types/bun": "latest"
+	}
+}

@@ -1,0 +1,8 @@
+{"rule": "The agent must not run destructive shell commands (rm -rf, mkfs, dd, git reset --hard, truncate of tracked files).", "block": true, "sites": ["tool_call"]}
+{"rule": "The agent must not modify or delete files outside the current repository.", "block": true, "sites": ["tool_call"]}
+{"rule": "The agent must not commit or push changes without explicit user approval.", "block": true, "sites": ["tool_call"]}
+{"rule": "The agent must not delete, skip, or weaken existing tests to make a suite pass.", "block": true, "sites": ["tool_call"]}
+{"rule": "The agent must not write secrets, API keys, or credentials into repository files.", "block": true, "sites": ["tool_call"]}
+{"rule": "The agent must not install new dependencies without asking the user first.", "block": false, "sites": ["tool_call"]}
+{"rule": "The agent must not edit a file it has not read in this session.", "block": false, "sites": ["tool_call"]}
+{"rule": "The agent must not claim a task is complete without running a verification command.", "block": false, "sites": ["session_stop"]}
