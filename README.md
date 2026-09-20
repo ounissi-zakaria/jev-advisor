@@ -176,17 +176,3 @@ Rows are either judgments (`site`, `p`, `verdict`, `rule`, `cards`) or card deli
 `p[i]` is rule `i` (0-based, matching file order). Run for a while, then move `blockAt`/`noteAt` to where your rules
 actually separate — near-misses are recorded too, since every check is logged, not just hits. Pin `model` to the
 version reported here once thresholds settle.
-
-## Local checks
-
-`scripts/smoke.sh` is a local, untracked script (see `.gitignore`); it is not part of the repository. It runs real
-omp sessions against real rules and real jev calls, and asserts what is observable from outside the extension:
-
-- a destructive call is refused in the audit trail and its sentinel file survives every attempt;
-- a stop refusal is followed by more work — a session that was allowed to stop runs no further turns, so later
-  judgment rows are proof the refusal arrived — and the run still ends, so a refusal cannot loop;
-- refusals match violating stop states exactly, and a rule that refused never re-reports as a card (its `cards`
-  audit row shows `sent: []`).
-
-Everything the assertions read is written by the extension into the run directory; the script never touches omp's
-session store or any path outside the repository. `JEV_SMOKE_KEEP=1` keeps runs under `.smoke/` for inspection.
